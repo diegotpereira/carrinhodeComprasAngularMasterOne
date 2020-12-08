@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {CoreModule} from './core/core.module';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import {CoreModule} from './core/core.module';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
+    MatCardModule,
     MatProgressSpinnerModule
   ],
   providers: [AuthGuard],
