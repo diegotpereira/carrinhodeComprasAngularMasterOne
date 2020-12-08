@@ -1,0 +1,36 @@
+<mat-toolbar color="primary"
+             class="app-toolbar">
+  <a class="name-app"
+     mat-button
+     routerLink="/">
+    <mat-icon>store</mat-icon>
+    {{appName}}
+  </a>
+  <a mat-button
+     class="nav-products"
+     routerLink="/products"
+     routerLinkActive="active">
+    Produtos
+  </a>
+  <span class="fill-remaining-space"></span>
+  <a *ngIf="!authService.username"
+     mat-button
+     class="nav-login"
+     routerLink="/login"
+     routerLinkActive="active">
+    Entrar
+  </a>
+  <a *ngIf="authService.username"
+     mat-button
+     class="nav-login"
+     (click)="signOut()">Cerrar Sesión
+  </a>
+  <a mat-icon-button
+     class="nav-cart"
+     [matBadge]="itemsOrder"
+     [matBadgeHidden]="itemsOrder === '0'"
+     matBadgeColor="accent"
+     (click)="toggleCart()">
+    <mat-icon>shopping_cart</mat-icon>
+  </a>
+</mat-toolbar>
