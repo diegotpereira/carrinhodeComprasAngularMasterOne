@@ -5,4 +5,14 @@ export interface Produto {
     preco: number;
     imagemUrl: string;
   }
+
+  export interface ProdutoResolved {
+    produto: Produto;
+    error?: any;
+  }
+  export interface OrderItem {
+    produto: Produto;
+    precoTotal: number;
+    quantidade: number;
+  }
   

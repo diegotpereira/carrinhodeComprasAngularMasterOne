@@ -1,0 +1,37 @@
+<div class="page-container">
+    <div class="page-content">
+        <ng-container *ngIf="produtos; else spinner">
+            <div class="produto-buscar">
+                <mat-form-field>
+                    <mat-label>Buscar</mat-label>
+                    <input matInput [formControl]="searchCtrl">
+                </mat-form-field>
+            </div>
+            <div class="produtos">
+                <mat-card class="produto-card" *ngFor="let produto of filteredProducts" appHoverElevation>
+                    <mat-card-header>
+                        <mat-card-title [routerLink]="['/produtos', produto.id]">{{produto.produtoNome}}
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            {{produto.preco | currency:'COP':'symbol-narrow':'1.0-0'}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <img class="card-image" mat-card-image [src]="produto.imageUrl" [alt]="produto.produtoNome"
+                        [routerLink]="['/produtos', produto.id]">
+                    <mat-card-content>
+                        <p>{{produto.descricao}}</p>
+                    </mat-card-content>
+                    <div class="fill-remaining-space"></div>
+                    <mat-card-actions>
+                        <button mat-raised-button (click)="addProduct(produto)" color="primary">
+                            Adicionaro ao carrinho
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </ng-container>
+        <ng-template #spinner>
+            <mat-spinner class="spinner" color="accent" diameter="70" strokeWidth="6"></mat-spinner>
+        </ng-template>
+    </div>
+</div>

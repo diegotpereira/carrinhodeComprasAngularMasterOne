@@ -33,10 +33,17 @@
       }
     }
   }
-  .nav-products {
+  .nav-produtos {
     @media screen and (max-width: 500px) {
       justify-self: flex-start;
-      grid-area: products;
+      grid-area: produtos;
+    }
+  }
+
+  .nav-sobre {
+    @media screen and (max-width: 500px) {
+      justify-self: flex-start;
+      grid-area: sobre;
     }
   }
   .nav-login {
@@ -45,7 +52,7 @@
       grid-area: login;
     }
   }
-  .nav-cart {
+  .nav-carrinho {
     @media screen and (max-width: 500px) {
       justify-self: flex-end;
       mat-icon {

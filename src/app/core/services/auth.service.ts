@@ -4,16 +4,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  username?: string;
+  nomeUsuario?: string;
   redirectUrl: string;
 
-  signIn(username: string, pass: string): void {
-    if (username && pass) {
-      this.username = username;
+  signIn(nomeUsuario: string, pass: string): void {
+    if (nomeUsuario && pass) {
+      this.nomeUsuario = nomeUsuario;
     }
   }
 
   singOut(): void {
-    this.username = null;
+    this.nomeUsuario = null;
   }
 }

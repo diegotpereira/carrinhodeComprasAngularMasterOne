@@ -1,0 +1,27 @@
+<div class="page-content">
+  <mat-card class="login-card">
+    <form novalidate
+          class="form-login"
+          [formGroup]="form"
+          (ngSubmit)="signIn($event)">
+      <mat-form-field>
+        <mat-label>Usuario</mat-label>
+        <input matInput
+               autocomplete="nope"
+               formControlName="nomeUsuario">
+        <mat-error *ngIf="nomeUsuarioField.errors && nomeUsuarioField.touched">Este campo é obrigatório</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Senha</mat-label>
+        <input matInput
+               type="password"
+               formControlName="pass">
+        <mat-error *ngIf="passField.errors && passField.touched">Este campo é obrigatório</mat-error>
+      </mat-form-field>
+      <button mat-raised-button
+              class="form-login-btn"
+              color="primary"
+              type="submit">Entrar</button>
+    </form>
+  </mat-card>
+</div>

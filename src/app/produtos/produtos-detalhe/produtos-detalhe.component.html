@@ -1,0 +1,44 @@
+<div class="page-container">
+    <div class="page-content">
+        <a class="back-button" mat-raised-button routerLink="/produtos">
+            <mat-icon>arrow_back</mat-icon>
+            Voltar
+        </a>
+        <ng-container *ngIf="produto, else message">
+            <mat-card class="produto-card">
+                <img [src]="produto.imageUrl" [alt]="produto.produtoNome" class="product-image" mat-card-image>
+                <div class="card-info">
+                    <mat-card-title class="product-title">{{pageTitle}}</mat-card-title>
+                    <mat-card-subtitle class="product-subtitle">{{produto.descricao}}</mat-card-subtitle>
+
+                    <div class="fill-remaining-space"></div>
+                    <mat-card-content class="product-content">
+                        <mat-form-field class="product-quantity">
+                            <mat-label>Quantidade</mat-label>
+                            <input matInput autocomplete="nope" type="number" [formControl]="productQuantityCtrl"
+                                min="1">
+                            <mat-error *ngIf="productQuantityCtrl.errors && productQuantityCtrl.touched">
+                                Quantidade inválida
+                            </mat-error>
+                        </mat-form-field>
+                        <p class="product-price">{{totalPrice | currency:'COP':'symbol-narrow':'1.0-0'}}</p>
+                    </mat-card-content>
+
+                    <mat-card-actions class="product-actions">
+                        <button mat-raised-button (click)="addProduct()" color="primary">
+                            Agregar al carrito
+                        </button>
+                    </mat-card-actions>
+                </div>
+            </mat-card>
+        </ng-container>
+
+        <ng-template #message>
+            <mat-card>
+                <mat-card-title>{{pageTitle}}</mat-card-title>
+                <mat-card-subtitle>{{errorMessage}}</mat-card-subtitle>
+            </mat-card>
+        </ng-template>
+
+    </div>
+</div>

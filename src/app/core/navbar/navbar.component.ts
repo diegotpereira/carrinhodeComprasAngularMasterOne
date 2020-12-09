@@ -19,4 +19,10 @@ export class NavbarComponent implements OnInit {
   }
   toggleCart(): void {}
 
+  signOut(): void {
+    this.authService.nomeUsuario = undefined;
+    // this.cartShoppingService.clearCart();
+    this.router.navigate(['/']);
+  }
+
 }
