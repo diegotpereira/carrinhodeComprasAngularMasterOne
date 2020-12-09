@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
-import { Produto } from 'src/app/shared/interfaces';
+import { Produto, ProdutoResolved } from 'src/app/shared/interfaces';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-produtos-detalhe',
@@ -10,11 +11,38 @@ import { Produto } from 'src/app/shared/interfaces';
 })
 export class ProdutosDetalheComponent implements OnInit {
   produto: Produto;
+  errorMessage: string;
+  pageTitle: string;
+  precoTotal: number;
+  qtdProduto: FormControl;
+
 
   constructor(private route: ActivatedRoute,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar) {
+                this.qtdProduto = new FormControl('1', [Validators.required, Validators.min(1)]);
+               }
 
   ngOnInit(): void {
+    const resolvedData: ProdutoResolved = this.route.snapshot.data.resolvedData;
+    this.errorMessage = resolvedData.error;
+    this.onProdutoRetrieved(resolvedData.produto);
+  }
+  onProdutoRetrieved(produto: Produto): void {
+    this.produto = produto;
+    this.pageTitle = this.produto
+      ? `Detalles del produto: ${this.produto.produtoNome}`
+      : 'Producto no encontrado';
+    this.precoTotal = this.produto.preco;
+    this.qtdProduto.valueChanges.subscribe(
+      value => this.calcTotalPreco(+value)
+    );
+  }
+  calcTotalPreco(quantidade: number) {
+    if (quantidade < 1 || quantidade === null) {
+      this.precoTotal = this.produto.preco;
+    } else {
+      this.precoTotal = this.produto.preco * quantidade;
+    }
   }
 
 }

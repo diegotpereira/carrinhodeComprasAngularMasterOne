@@ -15,9 +15,9 @@
                     <mat-card-content class="produto-content">
                         <mat-form-field class="produto-quantity">
                             <mat-label>Quantidade</mat-label>
-                            <input matInput autocomplete="nope" type="number" [formControl]="productQuantityCtrl"
+                            <input matInput autocomplete="nope" type="number" [formControl]="qtdProduto"
                                 min="1">
-                            <mat-error *ngIf="productQuantityCtrl.errors && productQuantityCtrl.touched">
+                            <mat-error *ngIf="qtdProduto.errors && qtdProduto.touched">
                                 Quantidade inválida
                             </mat-error>
                         </mat-form-field>
@@ -26,7 +26,7 @@
 
                     <mat-card-actions class="produto-actions">
                         <button mat-raised-button (click)="addProduct()" color="primary">
-                            Agregar al carrito
+                            Adicionar no carrinho
                         </button>
                     </mat-card-actions>
                 </div>
