@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, AbstractControl, Validators } from '@angular/forms';
+import { LoginModule } from './login.module';
+
+
 
 
 @Component({
@@ -10,12 +13,17 @@ import { FormBuilder, FormGroup, AbstractControl, Validators } from '@angular/fo
 })
 
 
+
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router) { }
+
+              imports: [
+                LoginModule
+                ]
 
   LogOn() {
     localStorage['token'] = 'xptoh26410x5=50';  

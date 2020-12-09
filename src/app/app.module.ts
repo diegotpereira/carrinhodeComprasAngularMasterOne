@@ -10,9 +10,11 @@ import {CoreModule} from './core/core.module';
 import { MatCardModule } from '@angular/material/card';
 
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
     HttpClientModule,
     CoreModule,
     MatCardModule,
+    
     MatProgressSpinnerModule
   ],
   providers: [AuthGuard],
