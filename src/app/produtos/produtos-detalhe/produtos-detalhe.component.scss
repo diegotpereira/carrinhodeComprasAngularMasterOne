@@ -2,7 +2,7 @@
     margin: 6rem auto;
     display: table;
   }
-  .product-card {
+  .produto-card {
     padding: 0;
     display: grid;
     grid-template-columns: 350px auto;
@@ -30,21 +30,21 @@
     flex-direction: column;
     padding: 1rem;
   }
-  .product-title {
+  .produto-title {
     font-size: 1.25rem;
   
     @media screen and (max-width: 500px) {
       font-size: 1rem;
     }
   }
-  .product-subtitle {
+  .produto-subtitle {
     font-size: 1rem;
   
     @media screen and (max-width: 500px) {
       font-size: .9rem;
     }
   }
-  .product-price {
+  .produto-price {
     font-size: 1.5rem;
     margin-left: 1rem;
   
@@ -52,23 +52,23 @@
       font-size: 1rem;
     }
   }
-  .product-content {
+  .produto-content {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     margin-bottom: 0;
   }
-  .product-quantity {
+  .produto-quantity {
     width: 100px;
   
     @media screen and (max-width: 500px) {
       width: 70px;
     }
   }
-  .product-add-icon {
+  .produto-add-icon {
     font-size: 2rem;
   }
-  .product-actions {
+  .produto-actions {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 0;
