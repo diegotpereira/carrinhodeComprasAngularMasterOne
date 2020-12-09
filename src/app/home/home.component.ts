@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   titlePage = 'Carrinho de Compras';
+  urlImage = '/assets/images/home1.svg';
 
   constructor() { }
 

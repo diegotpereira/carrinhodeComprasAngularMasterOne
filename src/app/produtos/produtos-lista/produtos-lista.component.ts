@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Produto } from '../../shared/interfaces';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl } from '@angular/forms';
+import {ProdutoService} from '../produto.service';
 
 
 @Component({
@@ -12,20 +13,25 @@ import { FormControl } from '@angular/forms';
 export class ProdutosListaComponent implements OnInit {
 
   produtos: Produto[];
-  searchCtrl: FormControl;
   filteredProducts: Produto[];
+  searchCtrl: FormControl;
 
-  constructor(private snackBar: MatSnackBar) {
+  constructor(private produtoService: ProdutoService,
+              private snackBar: MatSnackBar) {
 
     this.searchCtrl = new FormControl('');
   }
 
   ngOnInit(): void {
-
+    this.produtoService.getProdutos().subscribe(
     produtos => {
       this.produtos = produtos;
       this.filteredProducts = this.performFilter(this.searchCtrl.value);
     }
+    );
+    this.searchCtrl.valueChanges.subscribe(
+      value => this.filteredProducts = this.performFilter(value)
+    )
   }
   performFilter(filterBy: string): Produto[] {
     filterBy = this.sanitizeSearch(filterBy);
@@ -36,6 +42,11 @@ export class ProdutosListaComponent implements OnInit {
     return text.toLocaleLowerCase()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '');
+  }
+ 
+  adicionarProduto(produto: Produto) {
+    this.snackBarAddProduct();
+    // this.cartShoppingService.addItem(product, 1);
   }
   snackBarAddProduct(): void {
     this.snackBar.open('Produto adicionado!!', 'OK', {

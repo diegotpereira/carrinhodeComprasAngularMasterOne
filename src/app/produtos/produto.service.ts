@@ -18,10 +18,10 @@ export class ProdutoService {
 
     if (err.error instanceof ErrorEvent) {
       // A client side or network error occurred
-      return throwError(`ocorreu um erro ${err.error.message}`);
+      return throwError('ocorreu um erro ${err.error.message}');
     }
     // The backend returned an unsuccessful response code
-    return throwError(`O serviço da web retorna o código ${err.status}: ${err.body.error}`);
+    return throwError('O serviço da web retorna o código ${err.status}: ${err.body.error}');
   }
 
   getProdutos(): Observable<Produto[]> {

@@ -30,8 +30,8 @@ export class ProdutosDetalheComponent implements OnInit {
   onProdutoRetrieved(produto: Produto): void {
     this.produto = produto;
     this.pageTitle = this.produto
-      ? `Detalles del produto: ${this.produto.produtoNome}`
-      : 'Producto no encontrado';
+      ? `Detalhes do produto: ${this.produto.produtoNome}`
+      : 'Produto não encontrado';
     this.precoTotal = this.produto.preco;
     this.qtdProduto.valueChanges.subscribe(
       value => this.calcTotalPreco(+value)
@@ -43,6 +43,19 @@ export class ProdutosDetalheComponent implements OnInit {
     } else {
       this.precoTotal = this.produto.preco * quantidade;
     }
+  }
+  adicionarProduto(): void {
+    if (this.qtdProduto.valid) {
+      this.snackBarAddProduct();
+      // this.cartShoppingService.addItem(this.produto, +this.qtdProduto.value);
+    } else {
+      this.qtdProduto.markAllAsTouched();
+    }
+  }
+  snackBarAddProduct(): void {
+    this.snackBar.open('Agregado al carrito!!', 'OK', {
+      duration: 2500,
+    });
   }
 
 }

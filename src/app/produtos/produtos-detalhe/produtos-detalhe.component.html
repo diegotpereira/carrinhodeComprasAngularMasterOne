@@ -6,7 +6,7 @@
         </a>
         <ng-container *ngIf="produto, else message">
             <mat-card class="produto-card">
-                <img [src]="produto.imagemUrl" [alt]="produto.produtoNome" class="product-image" mat-card-image>
+                <img [src]="produto.imagemUrl" [alt]="produto.produtoNome" class="produto-image" mat-card-image>
                 <div class="card-info">
                     <mat-card-title class="produto-title">{{pageTitle}}</mat-card-title>
                     <mat-card-subtitle class="produto-subtitle">{{produto.descricao}}</mat-card-subtitle>
@@ -21,11 +21,11 @@
                                 Quantidade inválida
                             </mat-error>
                         </mat-form-field>
-                        <p class="produto-price">{{totalPrice | currency:'COP':'symbol-narrow':'1.0-0'}}</p>
+                        <p class="produto-price">{{precoTotal | currency:'COP':'symbol-narrow':'1.0-0'}}</p>
                     </mat-card-content>
 
                     <mat-card-actions class="produto-actions">
-                        <button mat-raised-button (click)="addProduct()" color="primary">
+                        <button mat-raised-button (click)="adicionarProduto()" color="primary">
                             Adicionar no carrinho
                         </button>
                     </mat-card-actions>

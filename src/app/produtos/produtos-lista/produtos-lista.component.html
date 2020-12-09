@@ -16,14 +16,14 @@
                             {{produto.preco | currency:'COP':'symbol-narrow':'1.0-0'}}
                         </mat-card-subtitle>
                     </mat-card-header>
-                    <img class="card-image" mat-card-image [src]="produto.imageUrl" [alt]="produto.produtoNome"
+                    <img class="card-image" mat-card-image [src]="produto.imagemUrl" [alt]="produto.produtoNome"
                         [routerLink]="['/produtos', produto.id]">
                     <mat-card-content>
                         <p>{{produto.descricao}}</p>
                     </mat-card-content>
                     <div class="fill-remaining-space"></div>
                     <mat-card-actions>
-                        <button mat-raised-button (click)="addProduct(produto)" color="primary">
+                        <button mat-raised-button (click)="adicionarProduto(produto)" color="primary">
                             Adicionaro ao carrinho
                         </button>
                     </mat-card-actions>
