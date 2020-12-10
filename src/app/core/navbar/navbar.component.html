@@ -15,8 +15,8 @@
    </a>
    <a *ngIf="authService.nomeUsuario" mat-button class="nav-login" (click)="signOut()">Sair
    </a>
-   <a mat-icon-button class="nav-carrinho" [matBadge]="itemsOrder" [matBadgeHidden]="itemsOrder === '0'"
-      matBadgeColor="accent" (click)="toggleCart()">
+   <a mat-icon-button class="nav-carrinho" [matBadge]="itemsPedido" [matBadgeHidden]="itemsPedido === '0'"
+      matBadgeColor="accent" (click)="alternarCarrinho()">
       <mat-icon>shopping_cart</mat-icon>
    </a>
 </mat-toolbar>

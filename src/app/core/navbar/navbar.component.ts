@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthService} from '../services/auth.service';
+import { CarrinhoComprasService } from '../services/carrinho-compras.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,18 +11,30 @@ import {AuthService} from '../services/auth.service';
 export class NavbarComponent implements OnInit {
 
   appName = 'Carrinho de Compras';
-  itemsOrder: string;
+  itemsPedido: string;
 
   constructor(private router: Router,
+              private carrinhoComprasService: CarrinhoComprasService,
               public authService: AuthService) { }
 
   ngOnInit(): void {
+    this.carrinhoComprasService.qtdItensChanged$.subscribe(
+      qtdItens => this.itemsPedido = qtdItens.toString()
+    );
   }
-  toggleCart(): void {}
+  alternarCarrinho(): void {
+    if (!location.pathname.includes('(compras : exibir)')) {
+      this.router.navigate([{ outlets: { carrinho: ['exibir']}}])
+          .then(() => console.log ('open carrinho'))
+    }else{
+      this.router.navigate([{ outlets: {carrinho: null}}])
+          .then(() => console.log('close carrinho'));
+    }
+  }
 
   signOut(): void {
     this.authService.nomeUsuario = undefined;
-    // this.cartShoppingService.clearCart();
+    this.carrinhoComprasService.limparCarrinho();
     this.router.navigate(['/']);
   }
 
