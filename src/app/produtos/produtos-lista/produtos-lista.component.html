@@ -13,7 +13,7 @@
                         <mat-card-title [routerLink]="['/produtos', produto.id]">{{produto.produtoNome}}
                         </mat-card-title>
                         <mat-card-subtitle>
-                            {{produto.preco | currency:'COP':'symbol-narrow':'1.0-0'}}
+                            {{produto.preco | currency:'R$'}}
                         </mat-card-subtitle>
                     </mat-card-header>
                     <img class="card-image" mat-card-image [src]="produto.imagemUrl" [alt]="produto.produtoNome"
