@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "carrinhodeComprasAngularMasterOne"
+  "defaultProject": "carrinhodeComprasAngularMasterOne",
+  "cli": {
+    "analytics": false
+  }
 }
