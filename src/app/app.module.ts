@@ -7,21 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {CoreModule} from './core/core.module';
-import { MatCardModule } from '@angular/material/card';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ProdutoData } from './produtos/produto-data';
-import { CarrinhoExibirComponent } from './carrinho-exibir/carrinho-exibir.component';
-import { CarrinhoDetalhesComponent } from './carrinho-detalhes/carrinho-detalhes.component';
-import { EntradaQtdComponent } from './carrinho-detalhes/entrada-qtd/entrada-qtd.component';
+import { CarrinhoExibirModule } from './carrinho-exibir/carrinho-exibir.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CarrinhoExibirComponent,
-    CarrinhoDetalhesComponent,
-    EntradaQtdComponent,
-   
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +22,7 @@ import { EntradaQtdComponent } from './carrinho-detalhes/entrada-qtd/entrada-qtd
     InMemoryWebApiModule.forRoot(ProdutoData, { delay: 700 }),
     HttpClientModule,
     CoreModule,
-    // PopupCartModule,
+    CarrinhoExibirModule,
     AppRoutingModule,
     MatProgressSpinnerModule,
   ],
