@@ -16,8 +16,17 @@ const routes: Routes = [
     loadChildren: () =>
       import('./produtos/produto.module').then(m => m.ProdutoModule)
   },
-
-
+  {
+    path: 'carrinho-detalhes',
+    loadChildren: () =>
+      import('./carrinho-detalhes/carrinho-detalhes.module').then(m => m.CarrinhoDetalhesModule)
+  },
+  {
+    path: 'compras-detalhes',
+    loadChildren: () =>
+      import('./compras-detalhes/compras-detalhes.module').then(m => m.ComprasDetalhesModule),
+      canActivate: [AuthGuard]
+  },
   {
     path: 'sobre', component: SobreComponent,
     // canActivate: [AuthGuard]
