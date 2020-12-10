@@ -15,8 +15,7 @@ import { ComprasDetalhesComponent } from './compras-detalhes/compras-detalhes.co
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ComprasDetalhesComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
