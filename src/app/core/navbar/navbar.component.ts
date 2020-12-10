@@ -23,12 +23,12 @@ export class NavbarComponent implements OnInit {
     );
   }
   alternarCarrinho(): void {
-    if (!location.pathname.includes('(carrinho : carrinho)')) {
-      this.router.navigate([{ outlets: { carrinho: ['carrinho']}}])
-          .then(() => console.log ('open carrinho'))
+    if (!location.pathname.includes('(exibir : carrinho')) {
+      this.router.navigate([{ outlets: { exibir: ['carrinho']}}])
+          .then(() => console.log ('open exibir'))
     }else{
-      this.router.navigate([{ outlets: {carrinho: null}}])
-          .then(() => console.log('close carrinho'));
+      this.router.navigate([{ outlets: {exibir: null}}])
+          .then(() => console.log('close exibir'));
     }
   }
 
