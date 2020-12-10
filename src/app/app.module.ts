@@ -8,7 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {CoreModule} from './core/core.module';
 import { MatCardModule } from '@angular/material/card';
-
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { ProdutoData } from './produtos/produto-data';
 
 
 @NgModule({
@@ -18,15 +19,15 @@ import { MatCardModule } from '@angular/material/card';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    InMemoryWebApiModule.forRoot(ProdutoData, { delay: 700 }),
     HttpClientModule,
     CoreModule,
-    MatCardModule,
-    
-    MatProgressSpinnerModule
+    // PopupCartModule,
+    AppRoutingModule,
+    MatProgressSpinnerModule,
   ],
-  providers: [AuthGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
