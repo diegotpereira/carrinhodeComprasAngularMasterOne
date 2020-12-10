@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Produto, ProdutoResolved } from 'src/app/shared/interfaces';
 import {FormControl, Validators} from '@angular/forms';
+import { CarrinhoComprasService } from 'src/app/core/services/carrinho-compras.service';
 
 @Component({
   selector: 'app-produtos-detalhe',
@@ -18,6 +19,7 @@ export class ProdutosDetalheComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,
+              private carrinhoComprasService: CarrinhoComprasService,
               private snackBar: MatSnackBar) {
                 this.qtdProduto = new FormControl('1', [Validators.required, Validators.min(1)]);
                }
@@ -47,13 +49,13 @@ export class ProdutosDetalheComponent implements OnInit {
   adicionarProduto(): void {
     if (this.qtdProduto.valid) {
       this.snackBarAddProduct();
-      // this.cartShoppingService.addItem(this.produto, +this.qtdProduto.value);
+      this.carrinhoComprasService.adicionarItem(this.produto, +this.qtdProduto.value);
     } else {
       this.qtdProduto.markAllAsTouched();
     }
   }
   snackBarAddProduct(): void {
-    this.snackBar.open('Agregado al carrito!!', 'OK', {
+    this.snackBar.open('Adicionado ao carrinho!!', 'OK', {
       duration: 2500,
     });
   }
