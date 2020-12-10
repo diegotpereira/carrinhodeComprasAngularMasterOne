@@ -1,59 +1,48 @@
 <div class="page-content">
-    <mat-card class="carrinho">
-      <mat-card-title class="carrinho-title">Carrinho de compras</mat-card-title>
-      <ng-container *ngIf="pedido.length !== 0; else empty">
-  
-        <mat-card-content class="carrinho-content">
-          <ul class="carrinho-list">
-            <li *ngFor="let item of pedido"
-                class="carrinho-item">
-              <img [src]="item.produto.imageUrl"
-                   [alt]="item.produto.produtoNome"
-                   class="carrinho-item-img">
-              <div class="carrinho-item-info">
-                <h4>{{item.produto.produtoName}}</h4>
-                <p>{{item.produto.descricao}}</p>
+  <mat-card class="carrinho">
+    <mat-card-title class="carrinho-title">Carrinho de compras</mat-card-title>
+    <ng-container *ngIf="pedido.length !== 0; else empty">
+
+      <mat-card-content class="carrinho-content">
+        <ul class="carrinho-list">
+          <li *ngFor="let item of pedido" class="carrinho-item">
+            <img [src]="item.produto.imagemUrl" [alt]="item.produto.produtoNome" class="carrinho-item-img">
+            <div class="carrinho-item-info">
+              <h4>{{item.produto.produtoName}}</h4>
+              <p>{{item.produto.descricao}}</p>
+            </div>
+
+            <div class="carrinho-item-preco">
+              <div class="preco-section">
+                <span class="item-preco">
+                  {{item.produto.preco | currency:'R$'}}x
+                </span>
+
+                <app-input-qtd [id]="item.produto.id" [qtd]="item.qtd.toString()"
+                  (qtdChanged)="qtdChanged($event, item.produto)"></app-input-qtd>
+
               </div>
-  
-              <div class="carrinho-item-preco">
-                <div class="preco-section">
-                 <span class="item-preco">
-                  {{item.produto.preco | currency:'COP':'symbol-narrow':'1.0-0'}}x
-                 </span>
-  
-                  <app-input-quantity [id]="item.produto.id"
-                                      [quantity]="item.qtd.toString()"
-                                      (quantityChanged)="qtdChanged($event, item.produto)"></app-input-quantity>
-  
-                </div>
-                <div class="preco-section">
-                  <span class="item-preco">
-                    {{item.precoTotal | currency:'COP':'symbol-narrow':'1.0-0'}}
-                  </span>
-                  <button color="accent"
-                          mat-icon-button
-                          class="item-delete"
-                          (click)="deleteItem(item.produto.id)">
-                    <mat-icon>delete</mat-icon>
-                  </button>
-                </div>
+              <div class="preco-section">
+                <span class="item-preco">
+                  {{item.precoTotal | currency:'R$'}}
+                </span>
+                <button color="accent" mat-icon-button class="item-delete" (click)="deleteItem(item.produto.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
               </div>
-            </li>
-          </ul>
-          <p class="total">Total: {{totalPedido | currency:'COP':'symbol-narrow':'1.0-0'}}</p>
-          <mat-error *ngIf="errorMessage"
-                     class="error-message">{{errorMessage}}</mat-error>
-        </mat-card-content>
-        <mat-card-actions class="carrinho-actions">
-          <a mat-raised-button
-             color="accent"
-             (click)="irParaCompra()">Comprar</a>
-        </mat-card-actions>
-      </ng-container>
-  
-     <ng-template #empty>
-       <mat-card-subtitle>Nenhum item adicionado</mat-card-subtitle>
-     </ng-template>
-    </mat-card>
-  </div>
-  
+            </div>
+          </li>
+        </ul>
+        <p class="total">Total: {{totalPedido | currency:'R$'}}</p>
+        <mat-error *ngIf="errorMessage" class="error-message">{{errorMessage}}</mat-error>
+      </mat-card-content>
+      <mat-card-actions class="carrinho-actions">
+        <a mat-raised-button color="accent" (click)="irParaCompra()">Comprar</a>
+      </mat-card-actions>
+    </ng-container>
+
+    <ng-template #empty>
+      <mat-card-subtitle>Nenhum item adicionado</mat-card-subtitle>
+    </ng-template>
+  </mat-card>
+</div>

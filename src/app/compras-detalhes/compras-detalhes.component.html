@@ -8,18 +8,18 @@
                         <mat-card-subtitle class="item-name">{{item.produto.produtoNome}}</mat-card-subtitle>
                         <mat-card-subtitle class="item-preco">
                             <span>
-                                {{item.produto.preco | currency:'COP':'symbol-narrow':'1.0-0'}}
+                                {{item.produto.preco | currency:'R$'}}
                                 x
                                 {{item.qtd}}
                             </span>
                             <span class="preco">
-                                {{item.precoTotal | currency:'COP':'symbol-narrow':'1.0-0'}}
+                                {{item.precoTotal | currency:'R$'}}
                             </span>
                         </mat-card-subtitle>
                     </li>
                 </ul>
                 <p class="compras-total">
-                    Total: {{precoTotal | currency:'COP':'symbol-narrow':'1.0-0'}}
+                    Total: {{precoTotal | currency:'R$'}}
                 </p>
             </mat-card-content>
             <mat-card-actions class="compras-actions">
