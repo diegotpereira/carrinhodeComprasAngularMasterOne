@@ -1,16 +1,17 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { OrderItem, Produto } from '../shared/interfaces';
+import { itensPedido, Produto } from '../shared/interfaces';
+import { CarrinhoComprasService } from '../core/services/carrinho-compras.service';
 
 @Component({
   selector: 'app-carrinho-detalhes',
   templateUrl: './carrinho-detalhes.component.html',
-  styleUrls: ['./carrinho-detalhes.component.css']
+  styleUrls: ['./carrinho-detalhes.component.scss']
 })
 export class CarrinhoDetalhesComponent implements OnInit, OnDestroy {
 
-  pedido: PedidoItem[];
+  pedido: itensPedido[];
   sub: Subscription;
   totalPedido: number;
   errorsEntrada: any = {}
@@ -31,13 +32,13 @@ export class CarrinhoDetalhesComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
   calPedidoPreco(): number {
-    return this.pedido.map(item => item, precoTotal)
-      .reduce ((a,b) => a+ b, 0 );
+    return this.pedido.map(item => item.precoTotal)
+      .reduce ((a,b) => a + b, 0 );
   }
   qtdChanged(event: any, produto: Produto): void {
     const key = event.id.toString();
     this.errorsEntrada[key] = event.value;
-    this.carrinhoComprasService.setOrder(+event.value, produto);
+    this.carrinhoComprasService.fecharPedido(+event.value, produto);
   }
   deleteItem(id: number) {
     this.carrinhoComprasService.deleteItem(id);

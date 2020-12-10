@@ -1,11 +1,6 @@
 <mat-form-field class="item-qtd">
-    <input matInput
-           min="1"
-           type="number"
-           [formControl]="qtdCtrl">
-    <mat-error *ngIf="qtdCtrl.errors && qtdCtrl.touched"
-               class="error">
-               Quantidade inválida
-    </mat-error>
-  </mat-form-field>
-  
+       <input matInput min="1" type="number" [formControl]="qtdCtrl">
+       <mat-error *ngIf="qtdCtrl.errors && qtdCtrl.touched" class="error">
+              Quantidade inválida
+       </mat-error>
+</mat-form-field>

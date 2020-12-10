@@ -12,7 +12,7 @@ import { itensPedido, Produto } from '../../shared/interfaces';
     qtdItens = 0 ;
 
     private orderBehaviorSubject$ = new BehaviorSubject<itensPedido[]>(this.pedido);
-    orderChanged$ = this.orderBehaviorSubject$.asObservable();
+    pedidoChanged$ = this.orderBehaviorSubject$.asObservable();
 
     private qtdItensSubject$ = new Subject<number>();
     qtdItensChanged$ = this.qtdItensSubject$.asObservable();

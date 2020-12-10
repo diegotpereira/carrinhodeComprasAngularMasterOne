@@ -6,7 +6,7 @@ import {debounceTime} from 'rxjs/operators';
 @Component({
   selector: 'app-entrada-qtd',
   templateUrl: './entrada-qtd.component.html',
-  styleUrls: ['./entrada-qtd.component.css']
+  styleUrls: ['./entrada-qtd.component.scss']
 })
 export class EntradaQtdComponent implements OnInit,OnDestroy {
 
