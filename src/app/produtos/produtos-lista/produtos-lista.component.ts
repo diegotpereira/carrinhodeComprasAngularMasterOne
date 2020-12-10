@@ -18,6 +18,7 @@ export class ProdutosListaComponent implements OnInit {
   searchCtrl: FormControl;
 
   constructor(private produtoService: ProdutoService,
+              private carrinhoComprasService: CarrinhoComprasService,
               private snackBar: MatSnackBar) {
 
     this.searchCtrl = new FormControl('');
@@ -47,7 +48,7 @@ export class ProdutosListaComponent implements OnInit {
  
   adicionarProduto(produto: Produto) {
     this.snackBarAddProduct();
-    this.carrinho-Compras.Service.adicionarItem(produto, 1);
+    this.carrinhoComprasService.adicionarItem(produto, 1);
   }
   snackBarAddProduct(): void {
     this.snackBar.open('Produto adicionado!!', 'OK', {
