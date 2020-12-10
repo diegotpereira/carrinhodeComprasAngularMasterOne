@@ -1,1 +1,35 @@
-<p>compras-detalhes works!</p>
+<div class="page-content">
+    <mat-card class="compras-card">
+        <ng-container *ngIf="pedido.length !== 0, else empty">
+            <mat-card-content>
+                <ul class="compras-list">
+                    <mat-card-title class="compras-title">Produtos</mat-card-title>
+                    <li class="compras-item" *ngFor="let item of pedido">
+                        <mat-card-subtitle class="item-name">{{item.produto.produtoNome}}</mat-card-subtitle>
+                        <mat-card-subtitle class="item-preco">
+                            <span>
+                                {{item.produto.preco | currency:'COP':'symbol-narrow':'1.0-0'}}
+                                x
+                                {{item.qtd}}
+                            </span>
+                            <span class="preco">
+                                {{item.precoTotal | currency:'COP':'symbol-narrow':'1.0-0'}}
+                            </span>
+                        </mat-card-subtitle>
+                    </li>
+                </ul>
+                <p class="compras-total">
+                    Total: {{precoTotal | currency:'COP':'symbol-narrow':'1.0-0'}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions class="compras-actions">
+                <button mat-raised-button color="accent" (click)="comfirmar()">
+                    Comfirmar
+                </button>
+            </mat-card-actions>
+        </ng-container>
+        <ng-template #empty>
+            <mat-card-subtitle class="empty">Você não selecionou um produtos</mat-card-subtitle>
+        </ng-template>
+    </mat-card>
+</div>
