@@ -10,11 +10,13 @@ import {CoreModule} from './core/core.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ProdutoData } from './produtos/produto-data';
 import { CarrinhoExibirModule } from './carrinho-exibir/carrinho-exibir.module';
+import { ComprasDetalhesComponent } from './compras-detalhes/compras-detalhes.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ComprasDetalhesComponent
   ],
   imports: [
     BrowserModule,
