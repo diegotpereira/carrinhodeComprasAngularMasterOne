@@ -9,8 +9,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {CoreModule} from './core/core.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ProdutoData } from './produtos/produto-data';
-import { CarrinhoExibirModule } from './carrinho-exibir/carrinho-exibir.module';
-import { ComprasDetalhesComponent } from './compras-detalhes/compras-detalhes.component';
+import { ExibirCarrinhoModule } from './exibir-carrinho/exibir-carrinho.module';
 
 
 @NgModule({
@@ -23,7 +22,7 @@ import { ComprasDetalhesComponent } from './compras-detalhes/compras-detalhes.co
     InMemoryWebApiModule.forRoot(ProdutoData, { delay: 700 }),
     HttpClientModule,
     CoreModule,
-    CarrinhoExibirModule,
+    ExibirCarrinhoModule,
     AppRoutingModule,
     MatProgressSpinnerModule,
   ],
