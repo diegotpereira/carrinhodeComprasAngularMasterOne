@@ -10,9 +10,9 @@ export interface Produto {
     produto: Produto;
     error?: any;
   }
-  export interface OrderItem {
+  export interface itensPedido {
     produto: Produto;
     precoTotal: number;
-    quantidade: number;
+    qtd: number;
   }
   
