@@ -39,7 +39,7 @@ export class ExibirCarrinhoComponent implements OnInit, OnDestroy {
     this.router.navigate([{ outlets: {primary: ['carrinho-detalhes'], exibir: null}}])
   }
   irParaCompra(): void {
-    this.router.navigate([{ outlets: { primary: ['compra-detalhes'], exibir: null}}])
+    this.router.navigate([{ outlets: { primary: ['compras-detalhes'], exibir: null}}])
   }
 
 }

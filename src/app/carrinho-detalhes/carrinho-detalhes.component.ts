@@ -52,7 +52,7 @@ export class CarrinhoDetalhesComponent implements OnInit, OnDestroy {
       }
     }
     this.errorMessage = null;
-    this.router.navigate(['/compra-detalhes']);
+    this.router.navigate(['/compras-detalhes']);
   }
 
 }
