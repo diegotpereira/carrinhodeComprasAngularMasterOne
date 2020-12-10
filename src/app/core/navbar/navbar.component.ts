@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
     );
   }
   alternarCarrinho(): void {
-    if (!location.pathname.includes('(compras : exibir)')) {
+    if (!location.pathname.includes('(carrinho : exibir)')) {
       this.router.navigate([{ outlets: { carrinho: ['exibir']}}])
           .then(() => console.log ('open carrinho'))
     }else{
