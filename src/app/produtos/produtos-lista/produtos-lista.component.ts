@@ -3,6 +3,7 @@ import { Produto } from '../../shared/interfaces';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl } from '@angular/forms';
 import {ProdutoService} from '../produto.service';
+import {  CarrinhoComprasService } from '../../core/services/carrinho-compras.service';
 
 
 @Component({
@@ -46,7 +47,7 @@ export class ProdutosListaComponent implements OnInit {
  
   adicionarProduto(produto: Produto) {
     this.snackBarAddProduct();
-    // this.cartShoppingService.addItem(product, 1);
+    this.carrinho-Compras.Service.adicionarItem(produto, 1);
   }
   snackBarAddProduct(): void {
     this.snackBar.open('Produto adicionado!!', 'OK', {
