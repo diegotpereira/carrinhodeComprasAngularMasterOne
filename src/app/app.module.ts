@@ -10,11 +10,17 @@ import {CoreModule} from './core/core.module';
 import { MatCardModule } from '@angular/material/card';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ProdutoData } from './produtos/produto-data';
+import { CarrinhoExibirComponent } from './carrinho-exibir/carrinho-exibir.component';
+import { CarrinhoDetalhesComponent } from './carrinho-detalhes/carrinho-detalhes.component';
+import { EntradaQtdComponent } from './carrinho-detalhes/entrada-qtd/entrada-qtd.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    CarrinhoExibirComponent,
+    CarrinhoDetalhesComponent,
+    EntradaQtdComponent,
    
   ],
   imports: [
