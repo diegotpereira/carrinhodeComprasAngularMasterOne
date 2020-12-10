@@ -1,0 +1,84 @@
+.page-content {
+    padding-top: 5.5rem;
+  }
+  .carrinho {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .carrinho-title {
+    font-size: 1.25rem;
+    padding-top: .5rem;
+  }
+  .carrinho-content {
+    margin-top: 2rem;
+  }
+  .carrinho-list {
+    padding-left: 0;
+    list-style: none;
+  }
+  .carrinho-item {
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-areas: "image info"
+                         "preco preco";
+    margin-bottom: 2rem;
+    color: rgba(0, 0, 0, .54);
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    h4, p {
+      margin-bottom: 0;
+    }
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    @media screen and (max-width: 420px) {
+      grid-template-columns: 60px auto;
+    }
+  }
+  .carrinho-item-img {
+    width: 100px;
+    grid-area: image;
+    @media screen and (max-width: 420px) {
+      width: 60px;
+    }
+  }
+  .carrinho-item-preco {
+    justify-self: flex-end;
+    grid-area: preco;
+    margin-top: 1rem;
+    .item-preco,
+    .item-quantity {
+      margin-right: 1rem;
+    }
+  }
+  .carrinho-item-info {
+    grid-area: info;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    @media screen and (max-width: 420px) {
+      margin-left: 1rem;
+      margin-right: 0;
+    }
+  }
+  .preco-section {
+    display: inline-block;
+    @media screen and (max-width: 420px) {
+      display: block;
+    }
+  }
+  .total {
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-align: right;
+  }
+  .carrinho-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 .5rem;
+  }
+  .error-message {
+    text-align: right;
+  }
+  
+  
