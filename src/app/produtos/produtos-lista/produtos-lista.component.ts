@@ -46,7 +46,7 @@ export class ProdutosListaComponent implements OnInit {
  
   adicionarProduto(produto: Produto) {
     this.snackBarAddProduct();
-    // this.cartShoppingService.addItem(product, 1);
+    this.carrinhoComprasService.adicionarItem(produto, 1);
   }
   snackBarAddProduct(): void {
     this.snackBar.open('Produto adicionado!!', 'OK', {
