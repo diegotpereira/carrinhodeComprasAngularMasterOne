@@ -36,10 +36,10 @@ export class ExibirCarrinhoComponent implements OnInit, OnDestroy {
     .reduce((a,b) => a+b,0);
   }
   irParaCarrinho():void{
-    this.router.navigate([{ outlets: {primary: ['carrinho-detalhes'], exibir: null}}])
+    this.router.navigate([{ outlets: {primary: ['carrinho-detalhes'], exibir: null}}]);
   }
   irParaCompra(): void {
-    this.router.navigate([{ outlets: { primary: ['compras-detalhes'], exibir: null}}])
+    this.router.navigate([{ outlets: { primary: ['compras-detalhes'], exibir: null}}]);
   }
 
 }
